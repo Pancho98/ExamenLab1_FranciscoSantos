@@ -27,21 +27,98 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_personal = new javax.swing.JDialog();
+        jd_familiar = new javax.swing.JDialog();
+        jd_registro = new javax.swing.JDialog();
+        jl_personal = new javax.swing.JLabel();
+        jl_familiar = new javax.swing.JLabel();
+        jl_registrar = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jd_personalLayout = new javax.swing.GroupLayout(jd_personal.getContentPane());
+        jd_personal.getContentPane().setLayout(jd_personalLayout);
+        jd_personalLayout.setHorizontalGroup(
+            jd_personalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_personalLayout.setVerticalGroup(
+            jd_personalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_familiarLayout = new javax.swing.GroupLayout(jd_familiar.getContentPane());
+        jd_familiar.getContentPane().setLayout(jd_familiarLayout);
+        jd_familiarLayout.setHorizontalGroup(
+            jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_familiarLayout.setVerticalGroup(
+            jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_registroLayout = new javax.swing.GroupLayout(jd_registro.getContentPane());
+        jd_registro.getContentPane().setLayout(jd_registroLayout);
+        jd_registroLayout.setHorizontalGroup(
+            jd_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_registroLayout.setVerticalGroup(
+            jd_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jl_personal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_personal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_personal.setText("Agregar Personal");
+        jl_personal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_personalMouseClicked(evt);
+            }
+        });
+
+        jl_familiar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_familiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_familiar.setText("Agregar Familiares");
+
+        jl_registrar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jl_registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_registrar.setText("Registrarse");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(156, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_familiar)
+                    .addComponent(jl_personal, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(146, 146, 146))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(jl_personal)
+                .addGap(72, 72, 72)
+                .addComponent(jl_familiar)
+                .addGap(64, 64, 64)
+                .addComponent(jl_registrar)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jl_personalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_personalMouseClicked
+        jd_personal.pack();
+        jd_personal.setModal(true);
+        jd_personal.setVisible(true);
+        jd_personal.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jl_personalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +156,11 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog jd_familiar;
+    private javax.swing.JDialog jd_personal;
+    private javax.swing.JDialog jd_registro;
+    private javax.swing.JLabel jl_familiar;
+    private javax.swing.JLabel jl_personal;
+    private javax.swing.JLabel jl_registrar;
     // End of variables declaration//GEN-END:variables
 }
