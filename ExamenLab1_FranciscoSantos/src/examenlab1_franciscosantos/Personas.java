@@ -100,7 +100,7 @@ public class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "nombre=" + nombre + '}';
+        return nombre;
     }
     
     

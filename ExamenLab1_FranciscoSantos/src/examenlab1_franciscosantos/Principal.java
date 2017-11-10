@@ -6,6 +6,10 @@
 package examenlab1_franciscosantos;
 
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -71,7 +75,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         cb_estadoF = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        tf_rol = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         tf_trabajo = new javax.swing.JTextField();
         bt_SaveFamiliar = new javax.swing.JButton();
@@ -80,6 +83,7 @@ public class Principal extends javax.swing.JFrame {
         tf_usuarioF = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         tf_contraseñaF = new javax.swing.JPasswordField();
+        cb_rol = new javax.swing.JComboBox<>();
         jd_registro = new javax.swing.JDialog();
         jLabel22 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -88,10 +92,18 @@ public class Principal extends javax.swing.JFrame {
         bt_ingresar = new javax.swing.JButton();
         tf_VerContraseña = new javax.swing.JPasswordField();
         jd_kim = new javax.swing.JDialog();
-        tab_normal = new javax.swing.JTabbedPane();
+        tab_kim = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         cb_registrados = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_personas = new javax.swing.JTable();
+        jLabel28 = new javax.swing.JLabel();
+        cb_ListaPersonas = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        bt_eliminar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jd_normal = new javax.swing.JDialog();
         jl_personal = new javax.swing.JLabel();
         jl_familiar = new javax.swing.JLabel();
@@ -287,6 +299,8 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel20.setText("Contaseña");
 
+        cb_rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madre", "Padre", "Hermana", "Hermano", "Esposo" }));
+
         javax.swing.GroupLayout jd_familiarLayout = new javax.swing.GroupLayout(jd_familiar.getContentPane());
         jd_familiar.getContentPane().setLayout(jd_familiarLayout);
         jd_familiarLayout.setHorizontalGroup(
@@ -303,14 +317,13 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_familiarLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tf_nombreF)
-                                .addComponent(tf_edadF)
-                                .addComponent(tf_idF)
-                                .addComponent(cb_estadoF, 0, 152, Short.MAX_VALUE)
-                                .addComponent(tf_rol))
-                            .addComponent(cb_sexoF, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_nombreF)
+                            .addComponent(tf_edadF)
+                            .addComponent(tf_idF)
+                            .addComponent(cb_estadoF, 0, 152, Short.MAX_VALUE)
+                            .addComponent(cb_sexoF, 0, 152, Short.MAX_VALUE)
+                            .addComponent(cb_rol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(49, 49, 49)
                         .addGroup(jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jd_familiarLayout.createSequentialGroup()
@@ -382,7 +395,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jd_familiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_SaveFamiliar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23)
-                    .addComponent(tf_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 
@@ -450,10 +463,10 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 431, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
 
-        tab_normal.addTab("Mensajeria", jPanel1);
+        tab_kim.addTab("Mensajeria", jPanel1);
 
         cb_registrados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -471,20 +484,114 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(cb_registrados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
 
-        tab_normal.addTab("No Leidos", jPanel2);
+        tab_kim.addTab("No Leidos", jPanel2);
+
+        jt_personas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Edad", "ID", "Estado Civil"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jt_personas);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Personas");
+
+        cb_ListaPersonas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_ListaPersonasItemStateChanged(evt);
+            }
+        });
+
+        jLabel29.setText("Personas");
+
+        bt_eliminar.setText("Eliminar");
+        bt_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_eliminarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(cb_ListaPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(jLabel29)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(bt_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_ListaPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(bt_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        tab_kim.addTab("Personas", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 569, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 449, Short.MAX_VALUE)
+        );
+
+        tab_kim.addTab("Modificar", jPanel4);
 
         javax.swing.GroupLayout jd_kimLayout = new javax.swing.GroupLayout(jd_kim.getContentPane());
         jd_kim.getContentPane().setLayout(jd_kimLayout);
         jd_kimLayout.setHorizontalGroup(
             jd_kimLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab_normal)
+            .addComponent(tab_kim)
         );
         jd_kimLayout.setVerticalGroup(
             jd_kimLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab_normal)
+            .addComponent(tab_kim)
         );
 
         javax.swing.GroupLayout jd_normalLayout = new javax.swing.GroupLayout(jd_normal.getContentPane());
@@ -532,7 +639,7 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+                .addContainerGap(158, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jl_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_familiar)
@@ -576,15 +683,33 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jl_registrarMouseClicked
 
     private void tf_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_idActionPerformed
-        
+
     }//GEN-LAST:event_tf_idActionPerformed
 
     private void cb_sexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_sexoActionPerformed
-        
+
     }//GEN-LAST:event_cb_sexoActionPerformed
 
     private void bt_SavePersonalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_SavePersonalMouseClicked
-        personas.add(new Personal(tf_ocupacion.getText(), tf_horaE.getText(), tf_horaS.getText(), Integer.parseInt(tf_TT.getText()), Integer.parseInt(tf_sueldo.getText()), tf_nombre.getText(), Integer.parseInt(tf_edad.getText()), Integer.parseInt(tf_id.getText()), cb_sexo.getSelectedItem().toString(), cb_estado.getSelectedItem().toString(), tf_usuario.getText(), tf_contraseña.getText()));
+        Personal p = new Personal(tf_ocupacion.getText(), tf_horaE.getText(), tf_horaS.getText(), Integer.parseInt(tf_TT.getText()), Integer.parseInt(tf_sueldo.getText()), tf_nombre.getText(), Integer.parseInt(tf_edad.getText()), Integer.parseInt(tf_id.getText()), cb_sexo.getSelectedItem().toString(), cb_estado.getSelectedItem().toString(), tf_usuario.getText(), tf_contraseña.getText());
+        personas.add(p);
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+        modelo.addElement(p);
+        cb_ListaPersonas.setModel(modelo);
+        //
+        JOptionPane.showMessageDialog(null, "Se guardo la persona con exito");
+        tf_ocupacion.setText("");
+        tf_horaE.setText("");
+        tf_horaS.setText("");
+        tf_TT.setText("");
+        tf_sueldo.setText("");
+        tf_nombre.setText("");
+        tf_edad.setText("");
+        tf_id.setText("");
+        cb_sexo.setSelectedIndex(0);
+        cb_estado.setSelectedIndex(0);
+        tf_usuario.setText("");
+        tf_contraseña.setText("");
     }//GEN-LAST:event_bt_SavePersonalMouseClicked
 
     private void tf_idFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_idFActionPerformed
@@ -596,20 +721,140 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_sexoFActionPerformed
 
     private void bt_SaveFamiliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_SaveFamiliarMouseClicked
-        personas.add(new Familiares(tf_rol.getText(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText()));
+        if (contFam >= 0) {
+            if (cb_rol.getSelectedItem().toString().equals("Padre") && dad > 0) {
+                Familiares f = new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText());
+                personas.add(f);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+                modelo.addElement(f);
+                cb_ListaPersonas.setModel(modelo);
+                dad--;
+                contFam--;
+                JOptionPane.showMessageDialog(null, "Se guardo la persona con exito");
+            }
+            if (cb_rol.getSelectedItem().toString().equals("Madre") && mom > 0) {
+                Familiares f = new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText());
+                personas.add(f);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+                modelo.addElement(f);
+                cb_ListaPersonas.setModel(modelo);
+                mom--;
+                contFam--;
+                JOptionPane.showMessageDialog(null, "Se guardo la persona con exito");
+            }
+            if (cb_rol.getSelectedItem().toString().equals("Esposo") && husb > 0) {
+                Familiares f = new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText());
+                personas.add(f);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+                modelo.addElement(f);
+                cb_ListaPersonas.setModel(modelo);
+                husb--;
+                contFam--;
+                JOptionPane.showMessageDialog(null, "Se guardo la persona con exito");
+            }
+            if (cb_rol.getSelectedItem().toString().equals("Hermano") && bro > 0) {
+                Familiares f = new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText());
+                personas.add(f);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+                modelo.addElement(f);
+                cb_ListaPersonas.setModel(modelo);
+                bro--;
+                contFam--;
+                JOptionPane.showMessageDialog(null, "Se guardo la persona con exito");
+            }
+            if (cb_rol.getSelectedItem().toString().equals("Hermana") && bro > 0) {
+                Familiares f = new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText());
+                personas.add(f);
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+                modelo.addElement(f);
+                cb_ListaPersonas.setModel(modelo);
+                sis--;
+                contFam--;
+                JOptionPane.showMessageDialog(null, "Se guardo la persona con exito");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No puede exceder la cantidad de familiares");
+        }
+        cb_rol.setSelectedIndex(0);
+        tf_trabajo.setText("");
+        tf_altura.setText("");
+        tf_peso.setText("");
+        tf_nombreF.setText("");
+        tf_edadF.setText("");
+        tf_idF.setText("");
+        cb_sexoF.setSelectedIndex(0);
+        cb_estadoF.setSelectedIndex(0);
+        tf_usuarioF.setText("");
+        tf_contraseñaF.setText("");
     }//GEN-LAST:event_bt_SaveFamiliarMouseClicked
-
+    /*personas.add(new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText()));
+            JOptionPane.showMessageDialog(null,"Se guardo la persona con exito");
+            cb_rol.setSelectedIndex(0);
+            tf_trabajo.setText("");
+            tf_altura.setText("");
+            tf_peso.setText("");
+            tf_nombreF.setText("");
+            tf_edadF.setText("");
+            tf_idF.setText("");
+            cb_sexoF.setSelectedIndex(0);
+            cb_estadoF.setSelectedIndex(0);
+            tf_usuarioF.setText("");
+            tf_contraseñaF.setText("");*/
     private void bt_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ingresarMouseClicked
         if (nombre.equals(tf_VerUsuario.getText()) && contra.equals(tf_VerContraseña.getText())) {
-            
-        }else{
+            JOptionPane.showMessageDialog(null, "//// Bienvenida Kim ////");
+            UserAct = nombre;
+            jd_kim.pack();
+            jd_kim.setModal(true);
+            jd_kim.setVisible(true);
+            jd_kim.setLocationRelativeTo(null);
+        } else {
             for (Personas t : personas) {
                 if (t.getUsuario().equals(tf_VerUsuario.getText()) && t.getContraseña().equals(tf_VerContraseña.getText())) {
-                    
+                    JOptionPane.showMessageDialog(null, "Bienvenido "+t.getNombre());
+                    UserAct = t.getNombre();
+                    jd_normal.pack();
+                    jd_normal.setModal(true);
+                    jd_normal.setVisible(true);
+                    jd_normal.setLocationRelativeTo(null);
                 }
             }
         }
     }//GEN-LAST:event_bt_ingresarMouseClicked
+
+    private void cb_ListaPersonasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ListaPersonasItemStateChanged
+        if (evt.getStateChange() == 2) {
+                Personas s = (Personas) cb_ListaPersonas.getSelectedItem();
+                Object[] newrow = {
+                    s.getNombre(),
+                    s.getEdad(),
+                    s.getId(),
+                    s.getEstado()
+                };
+                DefaultTableModel modelo = (DefaultTableModel) jt_personas.getModel();
+                modelo.addRow(newrow);
+                jt_personas.setModel(modelo);
+                
+            }
+    }//GEN-LAST:event_cb_ListaPersonasItemStateChanged
+
+    private void bt_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_eliminarMouseClicked
+        if (cb_ListaPersonas.getSelectedIndex() >= 0) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_ListaPersonas.getModel();
+            modelo.removeElementAt(cb_ListaPersonas.getSelectedIndex());
+            cb_ListaPersonas.setModel(modelo);
+        }
+        if (jt_personas.getSelectedRow() >= 0) {
+            DefaultTableModel modelo = (DefaultTableModel) jt_personas.getModel();
+            modelo.removeRow(jt_personas.getSelectedRow());
+            jt_personas.setModel(modelo);
+        }
+        for (Personas t : personas) {
+            if (cb_ListaPersonas.getSelectedItem().toString().equals(t.getNombre())) {
+                personas.remove(t);
+            }
+        }
+    }//GEN-LAST:event_bt_eliminarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -649,10 +894,13 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_SaveFamiliar;
     private javax.swing.JButton bt_SavePersonal;
+    private javax.swing.JButton bt_eliminar;
     private javax.swing.JButton bt_ingresar;
+    private javax.swing.JComboBox<String> cb_ListaPersonas;
     private javax.swing.JComboBox<String> cb_estado;
     private javax.swing.JComboBox<String> cb_estadoF;
     private javax.swing.JComboBox<String> cb_registrados;
+    private javax.swing.JComboBox<String> cb_rol;
     private javax.swing.JComboBox<String> cb_sexo;
     private javax.swing.JComboBox<String> cb_sexoF;
     private javax.swing.JLabel jLabel1;
@@ -675,6 +923,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -684,6 +934,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_familiar;
     private javax.swing.JDialog jd_kim;
     private javax.swing.JDialog jd_normal;
@@ -692,7 +945,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jl_familiar;
     private javax.swing.JLabel jl_personal;
     private javax.swing.JLabel jl_registrar;
-    private javax.swing.JTabbedPane tab_normal;
+    private javax.swing.JTable jt_personas;
+    private javax.swing.JTabbedPane tab_kim;
     private javax.swing.JTextField tf_TT;
     private javax.swing.JPasswordField tf_VerContraseña;
     private javax.swing.JTextField tf_VerUsuario;
@@ -709,15 +963,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombreF;
     private javax.swing.JTextField tf_ocupacion;
     private javax.swing.JTextField tf_peso;
-    private javax.swing.JTextField tf_rol;
     private javax.swing.JTextField tf_sueldo;
     private javax.swing.JTextField tf_trabajo;
     private javax.swing.JTextField tf_usuario;
     private javax.swing.JTextField tf_usuarioF;
     // End of variables declaration//GEN-END:variables
     ArrayList<Personas> personas = new ArrayList();
-    ArrayList<Objetos>objetos=new ArrayList();
-    String nombre="Kim";
-    String contra="dash";
+    ArrayList<Objetos> objetos = new ArrayList();
+    String nombre = "Kim";
+    String contra = "dash";
     String UserAct;
+    int contFam = 8;
+    int sis = 4;
+    int bro = 1;
+    int dad = 1;
+    int mom = 1;
+    int husb = 1;
 }
