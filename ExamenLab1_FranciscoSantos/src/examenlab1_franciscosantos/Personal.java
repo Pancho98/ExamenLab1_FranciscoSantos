@@ -28,8 +28,8 @@ public class Personal extends Personas{
         this.sueldo = sueldo;
     }
 
-    public Personal(String ocupacion, String entrada, String Salida, int tiempoTrabajando, int sueldo, String nombre, int edad, int id, String sexo, String estado, String usuario, String contraseña, Objetos objeto) {
-        super(nombre, edad, id, sexo, estado, usuario, contraseña, objeto);
+    public Personal(String ocupacion, String entrada, String Salida, int tiempoTrabajando, int sueldo, String nombre, int edad, int id, String sexo, String estado, String usuario, String contraseña) {
+        super(nombre, edad, id, sexo, estado, usuario, contraseña);
         this.ocupacion = ocupacion;
         this.entrada = entrada;
         this.Salida = Salida;

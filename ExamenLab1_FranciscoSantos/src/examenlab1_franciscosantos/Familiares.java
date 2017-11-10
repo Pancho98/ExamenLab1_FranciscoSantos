@@ -29,8 +29,8 @@ public class Familiares extends Personas{
         this.peso = peso;
     }
 
-    public Familiares(String rol, String trabajo, double altura, double peso, String nombre, int edad, int id, String sexo, String estado, String usuario, String contraseña, Objetos objeto) {
-        super(nombre, edad, id, sexo, estado, usuario, contraseña, objeto);
+    public Familiares(String rol, String trabajo, double altura, double peso, String nombre, int edad, int id, String sexo, String estado, String usuario, String contraseña) {
+        super(nombre, edad, id, sexo, estado, usuario, contraseña);
         this.rol = rol;
         this.trabajo = trabajo;
         this.altura = altura;

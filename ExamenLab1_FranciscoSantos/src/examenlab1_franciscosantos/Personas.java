@@ -19,13 +19,12 @@ public class Personas {
     private String estado;
     private String usuario;
     private String contraseña;
-    private Objetos objeto;
     private ArrayList<Mensaje> mensajes=new ArrayList();
 
     public Personas() {
     }
 
-    public Personas(String nombre, int edad, int id, String sexo, String estado, String usuario, String contraseña, Objetos objeto) {
+    public Personas(String nombre, int edad, int id, String sexo, String estado, String usuario, String contraseña) {
         this.nombre = nombre;
         this.edad = edad;
         this.id = id;
@@ -33,7 +32,6 @@ public class Personas {
         this.estado = estado;
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.objeto = objeto;
     }
 
     public String getNombre() {
@@ -90,14 +88,6 @@ public class Personas {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
-    }
-
-    public Objetos getObjeto() {
-        return objeto;
-    }
-
-    public void setObjeto(Objetos objeto) {
-        this.objeto = objeto;
     }
 
     public ArrayList<Mensaje> getMensajes() {
