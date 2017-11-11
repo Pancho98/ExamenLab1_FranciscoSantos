@@ -26,7 +26,7 @@ public class Zapatos extends Objetos{
         this.confort = confort;
     }
 
-    public Zapatos(String talla, String suela, int confort, Color color, String descripcion, String marca, int tamaño, int calidad, int precio, Personas dueño) {
+    public Zapatos(String talla, String suela, int confort, Color color, String descripcion, String marca, int tamaño, int calidad, int precio, String dueño) {
         super(color, descripcion, marca, tamaño, calidad, precio, dueño);
         this.talla = talla;
         this.suela = suela;

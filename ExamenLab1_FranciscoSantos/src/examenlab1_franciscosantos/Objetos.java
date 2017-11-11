@@ -18,12 +18,12 @@ public class Objetos {
     private int tamaño;
     private int calidad;
     private int precio;
-    private Personas dueño;
+    private String dueño;
 
     public Objetos() {
     }
 
-    public Objetos(Color color, String descripcion, String marca, int tamaño, int calidad, int precio, Personas dueño) {
+    public Objetos(Color color, String descripcion, String marca, int tamaño, int calidad, int precio, String dueño) {
         this.color = color;
         this.descripcion = descripcion;
         this.marca = marca;
@@ -81,11 +81,11 @@ public class Objetos {
         this.precio = precio;
     }
 
-    public Personas getDueño() {
+    public String getDueño() {
         return dueño;
     }
 
-    public void setDueño(Personas dueño) {
+    public void setDueño(String dueño) {
         this.dueño = dueño;
     }
 
