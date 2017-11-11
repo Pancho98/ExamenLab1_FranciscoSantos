@@ -79,8 +79,7 @@ public class Personal extends Personas{
 
     @Override
     public String toString() {
-        return "Personal\n"
-                +super.getNombre()+ " sueldo= " + sueldo;
+        return super.getNombre();
     }
    
 }

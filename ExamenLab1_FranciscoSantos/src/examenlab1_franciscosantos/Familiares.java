@@ -79,8 +79,7 @@ public class Familiares extends Personas{
 
     @Override
     public String toString() {
-        return "Familiar\n"
-                +super.getNombre()+ " rol= " + rol;
+        return super.getNombre();
     }
     
     

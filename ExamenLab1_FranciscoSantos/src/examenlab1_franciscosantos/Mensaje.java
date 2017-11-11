@@ -12,13 +12,13 @@ package examenlab1_franciscosantos;
 public class Mensaje {
     private String cuerpo;
     private boolean estado;
-    private Personas emisor;
-    private Personas Receptor;
+    private String emisor;
+    private String Receptor;
 
     public Mensaje() {
     }
 
-    public Mensaje(String cuerpo, boolean estado, Personas emisor, Personas Receptor) {
+    public Mensaje(String cuerpo, boolean estado, String emisor, String Receptor) {
         this.cuerpo = cuerpo;
         this.estado = estado;
         this.emisor = emisor;
@@ -41,19 +41,19 @@ public class Mensaje {
         this.estado = estado;
     }
 
-    public Personas getEmisor() {
+    public String getEmisor() {
         return emisor;
     }
 
-    public void setEmisor(Personas emisor) {
+    public void setEmisor(String emisor) {
         this.emisor = emisor;
     }
 
-    public Personas getReceptor() {
+    public String getReceptor() {
         return Receptor;
     }
 
-    public void setReceptor(Personas Receptor) {
+    public void setReceptor(String Receptor) {
         this.Receptor = Receptor;
     }
 

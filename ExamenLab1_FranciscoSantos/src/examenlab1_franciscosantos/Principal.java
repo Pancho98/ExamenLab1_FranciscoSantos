@@ -100,6 +100,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        cb_amigoskim = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        men1 = new javax.swing.JTextArea();
+        env = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         cb_registrados = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
@@ -132,7 +136,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         cb_amigos = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        men2 = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
         jd_zapatos = new javax.swing.JDialog();
         jLabel38 = new javax.swing.JLabel();
@@ -202,6 +206,7 @@ public class Principal extends javax.swing.JFrame {
         tf_area = new javax.swing.JTextField();
         tf_inst = new javax.swing.JTextField();
         tf_fecha = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jl_personal = new javax.swing.JLabel();
         jl_familiar = new javax.swing.JLabel();
         jl_registrar = new javax.swing.JLabel();
@@ -605,15 +610,43 @@ public class Principal extends javax.swing.JFrame {
 
         tab_kim.addTab("Agregar Objetos", jPanel6);
 
+        men1.setColumns(20);
+        men1.setRows(5);
+        jScrollPane4.setViewportView(men1);
+
+        env.setText("Enviar");
+        env.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                envMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_amigoskim, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(env)))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(cb_amigoskim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(env)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         tab_kim.addTab("Mensajeria", jPanel1);
@@ -885,13 +918,16 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mensajes", jPanel7);
 
-        cb_amigos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        men2.setColumns(20);
+        men2.setRows(5);
+        jScrollPane3.setViewportView(men2);
 
         jButton4.setText("Enviar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1323,6 +1359,8 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(52, 52, 52))
         );
 
+        jButton5.setText("jButton5");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jl_personal.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -1429,6 +1467,7 @@ public class Principal extends javax.swing.JFrame {
         cb_estado.setSelectedIndex(0);
         tf_usuario.setText("");
         tf_contraseña.setText("");
+        reload();
     }//GEN-LAST:event_bt_SavePersonalMouseClicked
 
     private void tf_idFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_idFActionPerformed
@@ -1510,6 +1549,7 @@ public class Principal extends javax.swing.JFrame {
         cb_estadoF.setSelectedIndex(0);
         tf_usuarioF.setText("");
         tf_contraseñaF.setText("");
+        reload();
     }//GEN-LAST:event_bt_SaveFamiliarMouseClicked
     /*personas.add(new Familiares(cb_rol.getSelectedItem().toString(), tf_trabajo.getText(), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), tf_nombreF.getText(), Integer.parseInt(tf_edadF.getText()), Integer.parseInt(tf_idF.getText()), cb_sexoF.getSelectedItem().toString(), cb_estadoF.getSelectedItem().toString(), tf_usuarioF.getText(), tf_contraseñaF.getText()));
             JOptionPane.showMessageDialog(null,"Se guardo la persona con exito");
@@ -1640,6 +1680,14 @@ public class Principal extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        mensajes.add(new Mensaje(men2.getText(), false, UserAct, cb_amigos.getSelectedItem().toString()));
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void envMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_envMouseClicked
+        mensajes.add(new Mensaje(men1.getText(), false, UserAct, cb_amigos.getSelectedItem().toString()));
+    }//GEN-LAST:event_envMouseClicked
 
     public static String cifradoCesar(String texto, int codigo) {
         StringBuilder cifrado = new StringBuilder();
@@ -1864,9 +1912,18 @@ public class Principal extends javax.swing.JFrame {
     
     public void reload(){
         for (Personas t : personas) {
+            if(!t.getNombre().equals(UserAct)){
             DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_amigos.getModel();
             modelo.addElement(t);
             cb_amigos.setModel(modelo);
+        }
+        }
+        for (Personas t : personas) {
+            
+            DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_amigoskim.getModel();
+            modelo.addElement(t);
+            cb_amigoskim.setModel(modelo);
+        
         }
         for (Mensaje t : mensajes) {
             if (t.getReceptor().equals(UserAct)) {
@@ -1935,6 +1992,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_ingresar;
     private javax.swing.JComboBox<String> cb_ListaPersonas;
     private javax.swing.JComboBox<String> cb_amigos;
+    private javax.swing.JComboBox<String> cb_amigoskim;
     private javax.swing.JComboBox<String> cb_dueño;
     private javax.swing.JComboBox<String> cb_dueño1;
     private javax.swing.JComboBox<String> cb_dueño2;
@@ -1947,10 +2005,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_sexo;
     private javax.swing.JComboBox<String> cb_sexo1;
     private javax.swing.JComboBox<String> cb_sexoF;
+    private javax.swing.JButton env;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2031,8 +2091,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JDialog jd_familiar;
     private javax.swing.JDialog jd_hogar;
     private javax.swing.JDialog jd_kim;
@@ -2046,6 +2106,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jl_registrar;
     private javax.swing.JTable jt_mensajes;
     private javax.swing.JTable jt_personas;
+    private javax.swing.JTextArea men1;
+    private javax.swing.JTextArea men2;
     private javax.swing.JSpinner sp_calidad;
     private javax.swing.JSpinner sp_calidad1;
     private javax.swing.JSpinner sp_calidad2;
