@@ -127,7 +127,20 @@ public class Principal extends javax.swing.JFrame {
         cb_estado1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cb_Objetos = new javax.swing.JComboBox<>();
+        jLabel69 = new javax.swing.JLabel();
+        bt_color3 = new javax.swing.JButton();
+        jLabel70 = new javax.swing.JLabel();
+        tf_desc3 = new javax.swing.JTextField();
+        jLabel71 = new javax.swing.JLabel();
+        tf_marca3 = new javax.swing.JTextField();
+        jLabel72 = new javax.swing.JLabel();
+        tf_tam3 = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        sp_calidad3 = new javax.swing.JSpinner();
+        jLabel74 = new javax.swing.JLabel();
+        tf_precio3 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jd_normal = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -206,7 +219,6 @@ public class Principal extends javax.swing.JFrame {
         tf_area = new javax.swing.JTextField();
         tf_inst = new javax.swing.JTextField();
         tf_fecha = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
         jl_personal = new javax.swing.JLabel();
         jl_familiar = new javax.swing.JLabel();
         jl_registrar = new javax.swing.JLabel();
@@ -786,6 +798,11 @@ public class Principal extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -849,7 +866,32 @@ public class Principal extends javax.swing.JFrame {
 
         tab_kim.addTab("Modificar Personas", jPanel4);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel69.setText("Color");
+
+        bt_color3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_color3MouseClicked(evt);
+            }
+        });
+
+        jLabel70.setText("Descripcion");
+
+        jLabel71.setText("Marca");
+
+        jLabel72.setText("Tamaño");
+
+        jLabel73.setText("Calidad");
+
+        sp_calidad3.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+
+        jLabel74.setText("Precio");
+
+        jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -857,15 +899,70 @@ public class Principal extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_Objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel71)
+                                    .addComponent(jLabel72)
+                                    .addComponent(jLabel73)
+                                    .addComponent(jLabel74))
+                                .addGap(72, 72, 72))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel70)
+                                .addGap(56, 56, 56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_color3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_marca3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(sp_calidad3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tf_precio3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf_tam3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_desc3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(131, 131, 131)
+                        .addComponent(jButton5)))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(391, Short.MAX_VALUE))
+                .addComponent(cb_Objetos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel69)
+                    .addComponent(bt_color3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel70)
+                    .addComponent(tf_desc3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel71)
+                    .addComponent(tf_marca3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel72)
+                    .addComponent(tf_tam3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel73)
+                            .addComponent(sp_calidad3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton5)))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addComponent(tf_precio3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78))
         );
 
         tab_kim.addTab("Modificar Objetos", jPanel5);
@@ -1068,11 +1165,9 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel45)
                             .addComponent(tf_suela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_zapatosLayout.createSequentialGroup()
-                        .addGroup(jd_zapatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel39)
-                            .addComponent(tf_desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_zapatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel39)
+                        .addComponent(tf_desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jd_zapatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_zapatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel47)
@@ -1358,8 +1453,6 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(cb_dueño2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
         );
-
-        jButton5.setText("jButton5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1664,21 +1757,50 @@ public class Principal extends javax.swing.JFrame {
 
     private void bt_guardarZMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_guardarZMouseClicked
         Color color = bt_color.getBackground();
-        objetos.add(new Zapatos(tf_talla.getText(), tf_suela.getText(), 5, color, tf_desc.getText(), tf_marca.getText(), Integer.parseInt(tf_tam.getText()), Integer.parseInt(tf_precio.getText()), bro, cb_dueño.getSelectedItem().toString()));
+        Zapatos z = new Zapatos(tf_talla.getText(), tf_suela.getText(), 5, color, tf_desc.getText(), tf_marca.getText(), Integer.parseInt(tf_tam.getText()), Integer.parseInt(tf_precio.getText()), bro, cb_dueño.getSelectedItem().toString());
+        objetos.add(z);
+        
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Objetos.getModel();
+            modelo.addElement(z);
+            cb_Objetos.setModel(modelo);
+        
+        
     }//GEN-LAST:event_bt_guardarZMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Color color = bt_color1.getBackground();
-        objetos.add(new Ropa(tf_talla1.getText(), tf_mat.getText(), tf_pais.getText(), color, tf_desc1.getText(), tf_marca1.getText(), Integer.parseInt(tf_tam1.getText()), Integer.parseInt(tf_precio1.getText()), bro, cb_dueño1.getSelectedItem().toString()));
+        Ropa r = new Ropa(tf_talla1.getText(), tf_mat.getText(), tf_pais.getText(), color, tf_desc1.getText(), tf_marca1.getText(), Integer.parseInt(tf_tam1.getText()), Integer.parseInt(tf_precio1.getText()), bro, cb_dueño1.getSelectedItem().toString());
+        objetos.add(r);
+        
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Objetos.getModel();
+            modelo.addElement(r);
+            cb_Objetos.setModel(modelo);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         Color color = bt_color2.getBackground();
-        objetos.add(new Hogar(Integer.parseInt(tf_tiempo.getText()), tf_area.getText(), tf_inst.getText(), tf_fecha.getText(), color, tf_desc2.getText(), tf_marca2.getText(), Integer.parseInt(tf_tam2.getText()), Integer.parseInt(tf_precio2.getText()), bro, cb_dueño2.getSelectedItem().toString()));
+        Hogar h = new Hogar(Integer.parseInt(tf_tiempo.getText()), tf_area.getText(), tf_inst.getText(), tf_fecha.getText(), color, tf_desc2.getText(), tf_marca2.getText(), Integer.parseInt(tf_tam2.getText()), Integer.parseInt(tf_precio2.getText()), bro, cb_dueño2.getSelectedItem().toString());
+        objetos.add(h);
+        
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Objetos.getModel();
+            modelo.addElement(h);
+            cb_Objetos.setModel(modelo);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
+        if (cb_mod.getSelectedIndex() >= 0) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_mod.getModel();
+            ((Personas)modelo.getElementAt(cb_mod.getSelectedIndex())).setNombre(tf_nombre1.getText());
+            for (Personas t : personas) {
+                if (t.getNombre().equals(cb_mod.getSelectedItem().toString())) {
+                    t.setNombre(tf_nombre1.getText());
+                    t.setEdad(Integer.parseInt(tf_edad1.getText()));
+                    t.setId(Integer.parseInt(tf_id1.getText()));
+                    t.setSexo(cb_sexo1.getSelectedItem().toString());
+                    t.setEstado(cb_estado1.getSelectedItem().toString());
+                }
+            }
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -1688,6 +1810,31 @@ public class Principal extends javax.swing.JFrame {
     private void envMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_envMouseClicked
         mensajes.add(new Mensaje(men1.getText(), false, UserAct, cb_amigos.getSelectedItem().toString()));
     }//GEN-LAST:event_envMouseClicked
+
+    private void bt_color3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_color3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_color3MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        if (cb_Objetos.getSelectedIndex() >= 0) {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel)cb_Objetos.getModel();
+            ((Objetos)modelo.getElementAt(cb_Objetos.getSelectedIndex())).setMarca(tf_marca3.getText());
+            for (Objetos t : objetos) {
+                if (t.getMarca().equals(cb_Objetos.getSelectedItem().toString())) {
+                    t.setColor(bt_color3.getBackground());
+                    t.setDescripcion(tf_desc3.getText());
+                    t.setMarca(tf_marca3.getText());
+                    t.setTamaño(Integer.parseInt(tf_tam3.getText()));
+                    t.setCalidad(5);
+                    t.setPrecio(Integer.parseInt(tf_precio3.getText()));
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static String cifradoCesar(String texto, int codigo) {
         StringBuilder cifrado = new StringBuilder();
@@ -1938,6 +2085,13 @@ public class Principal extends javax.swing.JFrame {
                 jt_mensajes.setModel(modelo);
             }
         }
+        for (Personas t : personas) {
+            
+            DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_mod.getModel();
+            modelo.addElement(t);
+            cb_mod.setModel(modelo);
+        
+        }
     }
     
       public String trasposicion(String cadena) {
@@ -1987,10 +2141,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_color;
     private javax.swing.JButton bt_color1;
     private javax.swing.JButton bt_color2;
+    private javax.swing.JButton bt_color3;
     private javax.swing.JButton bt_eliminar;
     private javax.swing.JButton bt_guardarZ;
     private javax.swing.JButton bt_ingresar;
     private javax.swing.JComboBox<String> cb_ListaPersonas;
+    private javax.swing.JComboBox<String> cb_Objetos;
     private javax.swing.JComboBox<String> cb_amigos;
     private javax.swing.JComboBox<String> cb_amigoskim;
     private javax.swing.JComboBox<String> cb_dueño;
@@ -2011,7 +2167,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2077,7 +2232,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -2111,6 +2272,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSpinner sp_calidad;
     private javax.swing.JSpinner sp_calidad1;
     private javax.swing.JSpinner sp_calidad2;
+    private javax.swing.JSpinner sp_calidad3;
     private javax.swing.JSpinner sp_confort;
     private javax.swing.JTabbedPane tab_kim;
     private javax.swing.JTextField tf_TT;
@@ -2123,6 +2285,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_desc;
     private javax.swing.JTextField tf_desc1;
     private javax.swing.JTextField tf_desc2;
+    private javax.swing.JTextField tf_desc3;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_edad1;
     private javax.swing.JTextField tf_edadF;
@@ -2136,6 +2299,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_marca;
     private javax.swing.JTextField tf_marca1;
     private javax.swing.JTextField tf_marca2;
+    private javax.swing.JTextField tf_marca3;
     private javax.swing.JTextField tf_mat;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre1;
@@ -2146,6 +2310,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_precio;
     private javax.swing.JTextField tf_precio1;
     private javax.swing.JTextField tf_precio2;
+    private javax.swing.JTextField tf_precio3;
     private javax.swing.JTextField tf_suela;
     private javax.swing.JTextField tf_sueldo;
     private javax.swing.JTextField tf_talla;
@@ -2153,6 +2318,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_tam;
     private javax.swing.JTextField tf_tam1;
     private javax.swing.JTextField tf_tam2;
+    private javax.swing.JTextField tf_tam3;
     private javax.swing.JTextField tf_tiempo;
     private javax.swing.JTextField tf_trabajo;
     private javax.swing.JTextField tf_usuario;

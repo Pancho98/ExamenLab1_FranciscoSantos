@@ -91,8 +91,7 @@ public class Objetos {
 
     @Override
     public String toString() {
-        return "Objetos\n"
-               + "marca=" + marca + ", dueño = " + dueño;
+        return marca;
     }
     
 }
